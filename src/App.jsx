@@ -1,4 +1,6 @@
 import Header from "./components/Header.jsx";
+import Hero from "./components/Hero.jsx";
+import Journal from "./components/Journal.jsx";
 
 function App() {
   return (
@@ -10,18 +12,8 @@ function App() {
       <Header />
 
       <main id="main-content" tabIndex={-1}>
-        <section
-          className="section container"
-          aria-labelledby="intro-title"
-        >
-          <p className="eyebrow">
-            A personal film & television journal
-          </p>
-
-          <h1 id="intro-title">AFTERHOURS</h1>
-
-          <p>An archive of things that stayed with me.</p>
-        </section>
+        <Hero />
+        <Journal />
       </main>
     </>
   );
