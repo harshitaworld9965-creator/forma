@@ -1,22 +1,25 @@
-import "./App.css";
-
 function App() {
-  return (
-    <div className="site">
-      <header className="navbar">
-        <a className="logo" href="#">forma.</a>
+  return(
+    <>
+    <a className="skip-link" href="#main-content">
+      Skip to content
+    </a>
 
-        <nav className="nav-links">
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-        </nav>
+    <main id="main-content" tabIndex={-1}>
+      <section
+      className="section container"
+      aria-labelledby="intro-title"
+      >
+        <p className="eyebrow">
+          A personal film & television journal
+        </p>
 
-        <a className="button button-small" href="#pricing">
-          Get Started
-        </a>
-      </header>
-    </div>
-  )
+        <h1 id="intro-title">AFTERHOURS</h1>
+        <p> An archive of things that stayed with me.</p>
+      </section>
+    </main>
+    </>
+  );
 }
 
 export default App;
