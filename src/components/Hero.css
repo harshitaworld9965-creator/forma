@@ -1,0 +1,677 @@
+/* src/components/Hero.css */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100svh - 6rem);
+  padding-block: clamp(4rem, 8vw, 8rem);
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgb(243 234 215 / 96%),
+      rgb(251 246 234 / 88%)
+    );
+  border-bottom: var(--border-thin);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(25rem, 1.15fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 8rem);
+}
+
+/* Introductory copy */
+
+.hero__copy {
+  position: relative;
+  z-index: 3;
+}
+
+.hero__eyebrow {
+  max-width: 30rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+
+  color: var(--color-terracotta);
+}
+
+.hero__title {
+  max-width: 9ch;
+
+  font-size: clamp(4.75rem, 9vw, 10rem);
+  letter-spacing: -0.065em;
+}
+
+.hero__title-mask {
+  display: block;
+  overflow: hidden;
+  padding-right: 0.08em;
+  padding-bottom: 0.08em;
+}
+
+.hero__title-word {
+  display: block;
+  transform-origin: left bottom;
+}
+
+.hero__title-word--italic {
+  padding-left: 0.14em;
+
+  color: var(--color-terracotta);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero__description {
+  max-width: 36rem;
+  margin-top: clamp(1.75rem, 3vw, 3rem);
+
+  color: var(--color-ink-soft);
+  font-size: clamp(1rem, 0.92rem + 0.3vw, 1.25rem);
+}
+
+.hero__cta {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+
+  min-height: 3.5rem;
+  margin-top: var(--space-6);
+  padding: 0.8rem 1.25rem;
+
+  color: var(--color-paper-light);
+  background-color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-small);
+
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.hero__cta span:last-child {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.hero__cta:focus-visible {
+  color: var(--color-ink);
+  background-color: var(--color-gold);
+  outline-color: var(--color-ink);
+}
+
+/* Illustrated poster */
+
+.hero__visual {
+  position: relative;
+  width: min(100%, 48rem);
+  margin-left: auto;
+}
+
+.hero__artwork {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+
+  color: var(--color-paper);
+  background:
+    radial-gradient(
+      circle at 72% 22%,
+      rgb(121 114 173 / 32%),
+      transparent 20%
+    ),
+    linear-gradient(
+      145deg,
+      #214f49 0%,
+      #173f3a 52%,
+      #102d2a 100%
+    );
+
+  border: 1px solid var(--color-gold-dark);
+  border-radius: 50% 50% 0.5rem 0.5rem;
+  box-shadow:
+    0 0 0 0.5rem var(--color-paper),
+    0 0 0 0.6rem var(--color-gold),
+    1.5rem 1.5rem 0 rgb(167 131 61 / 14%);
+}
+
+.hero__artwork::before,
+.hero__artwork::after {
+  content: "";
+  position: absolute;
+  z-index: 8;
+
+  width: 8rem;
+  height: 8rem;
+
+  border-color: var(--color-gold);
+  border-style: solid;
+
+  pointer-events: none;
+}
+
+.hero__artwork::before {
+  top: 1rem;
+  left: 1rem;
+
+  border-width: 1px 0 0 1px;
+  border-radius: 100% 0 0;
+}
+
+.hero__artwork::after {
+  right: 1rem;
+  bottom: 1rem;
+
+  border-width: 0 1px 1px 0;
+  border-radius: 0 0 100%;
+}
+
+/* Moon and sky */
+
+.hero__moon {
+  position: absolute;
+  top: 8%;
+  right: 9%;
+  z-index: 1;
+
+  width: 31%;
+  aspect-ratio: 1;
+
+  background:
+    radial-gradient(
+      circle at 38% 34%,
+      rgb(114 88 41 / 16%) 0 4%,
+      transparent 4.5%
+    ),
+    radial-gradient(
+      circle at 65% 62%,
+      rgb(114 88 41 / 12%) 0 7%,
+      transparent 7.5%
+    ),
+    var(--color-gold);
+
+  border-radius: 50%;
+  box-shadow: 0 0 4rem rgb(243 234 215 / 18%);
+}
+
+.hero__stars span {
+  position: absolute;
+  z-index: 2;
+
+  width: 0.35rem;
+  aspect-ratio: 1;
+
+  background-color: var(--color-paper-light);
+  border-radius: 50%;
+  box-shadow: 0 0 0.75rem var(--color-paper-light);
+}
+
+.hero__stars span:nth-child(1) {
+  top: 14%;
+  left: 18%;
+}
+
+.hero__stars span:nth-child(2) {
+  top: 28%;
+  left: 38%;
+}
+
+.hero__stars span:nth-child(3) {
+  top: 9%;
+  left: 53%;
+}
+
+.hero__stars span:nth-child(4) {
+  top: 38%;
+  right: 10%;
+}
+
+/* Distant city */
+
+.hero__skyline {
+  position: absolute;
+  right: 0;
+  bottom: 16%;
+  left: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 1.2%;
+
+  height: 29%;
+  padding-inline: 3rem;
+
+  opacity: 0.55;
+}
+
+.hero__skyline span {
+  position: relative;
+  flex: 1;
+
+  background-color: #0b2825;
+  border-top: 1px solid rgb(243 234 215 / 25%);
+}
+
+.hero__skyline span::before,
+.hero__skyline span::after {
+  content: "";
+  position: absolute;
+  top: 16%;
+
+  width: 9%;
+  height: 4%;
+
+  background-color: var(--color-gold);
+  box-shadow:
+    0 1.5rem 0 var(--color-gold),
+    0 3rem 0 var(--color-gold);
+}
+
+.hero__skyline span::before {
+  left: 25%;
+}
+
+.hero__skyline span::after {
+  right: 25%;
+}
+
+.hero__skyline span:nth-child(1) {
+  height: 46%;
+}
+
+.hero__skyline span:nth-child(2) {
+  height: 72%;
+}
+
+.hero__skyline span:nth-child(3) {
+  height: 56%;
+}
+
+.hero__skyline span:nth-child(4) {
+  height: 86%;
+}
+
+.hero__skyline span:nth-child(5) {
+  height: 62%;
+}
+
+/* Cinema building */
+
+.hero__cinema {
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  z-index: 4;
+
+  width: 52%;
+  height: 34%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 8%,
+      rgb(243 234 215 / 12%) 8% 9%,
+      transparent 9% 91%,
+      rgb(243 234 215 / 12%) 91% 92%,
+      transparent 92%
+    ),
+    #234944;
+
+  border: 1px solid var(--color-gold);
+  box-shadow: 0.8rem 0.8rem 0 rgb(12 36 33 / 40%);
+}
+
+.hero__cinema-roof {
+  position: absolute;
+  right: -6%;
+  bottom: 100%;
+  left: -6%;
+
+  height: 17%;
+
+  background-color: var(--color-terracotta);
+  border: 1px solid var(--color-gold);
+  transform: skewX(-12deg);
+}
+
+.hero__cinema-sign {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+
+  padding: 0.35rem 0.8rem;
+
+  color: var(--color-ink);
+  background-color: var(--color-gold);
+  border: 1px solid var(--color-paper);
+
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  transform: translateX(-50%);
+}
+
+.hero__cinema-door {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: 30%;
+  height: 44%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      var(--color-gold) 48% 52%,
+      transparent 52%
+    ),
+    #102d2a;
+
+  border: 1px solid var(--color-gold);
+  transform: translateX(-50%);
+}
+
+.hero__cinema-light {
+  position: absolute;
+  bottom: 18%;
+
+  width: 5%;
+  aspect-ratio: 1;
+
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 1rem var(--color-gold);
+}
+
+.hero__cinema-light--one {
+  left: 13%;
+}
+
+.hero__cinema-light--two {
+  right: 13%;
+}
+
+/* Abstract profile in the foreground */
+
+.hero__portrait {
+  position: absolute;
+  bottom: -1%;
+  left: 0;
+  z-index: 5;
+
+  width: 56%;
+  height: 68%;
+}
+
+.hero__portrait-head {
+  position: absolute;
+  top: 7%;
+  left: 33%;
+  z-index: 2;
+
+  width: 34%;
+  aspect-ratio: 0.78;
+
+  background-color: #d2a982;
+  border: 1px solid var(--color-gold-dark);
+  border-radius: 48% 52% 43% 56% / 43% 45% 55% 57%;
+
+  transform: rotate(6deg);
+}
+
+.hero__portrait-head::after {
+  content: "";
+  position: absolute;
+  top: 44%;
+  right: -12%;
+
+  width: 24%;
+  height: 16%;
+
+  background-color: #d2a982;
+  border-radius: 0 75% 75% 0;
+
+  transform: rotate(-7deg);
+}
+
+.hero__portrait-hair {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  z-index: 3;
+
+  width: 55%;
+  height: 52%;
+
+  background-color: #1a2524;
+  border: 1px solid var(--color-gold-dark);
+  border-radius: 54% 46% 58% 42% / 42% 54% 46% 58%;
+
+  transform: rotate(-8deg);
+}
+
+.hero__portrait-hair::after {
+  content: "";
+  position: absolute;
+  top: 58%;
+  left: 12%;
+
+  width: 88%;
+  height: 92%;
+
+  background-color: #1a2524;
+  border-radius: 30% 65% 45% 55%;
+
+  transform: rotate(7deg);
+}
+
+.hero__portrait-shoulder {
+  position: absolute;
+  right: 0;
+  bottom: -12%;
+  left: -15%;
+  z-index: 1;
+
+  height: 58%;
+
+  background:
+    linear-gradient(
+      130deg,
+      var(--color-iris),
+      #554f80
+    );
+
+  border: 1px solid var(--color-gold-dark);
+  border-radius: 62% 48% 0 0;
+  transform: rotate(8deg);
+}
+
+/* Poster caption */
+
+.hero__caption {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  padding-top: var(--space-4);
+
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Botanical corner drawings */
+
+.hero__botanical {
+  position: absolute;
+  z-index: 1;
+
+  width: clamp(10rem, 21vw, 22rem);
+
+  pointer-events: none;
+}
+
+.hero__botanical svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.hero__botanical--top {
+  top: -2rem;
+  right: -3rem;
+}
+
+.hero__botanical--bottom {
+  bottom: -3rem;
+  left: -4rem;
+
+  transform: rotate(180deg);
+}
+
+.hero__stem,
+.hero__leaf,
+.hero__petal {
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__stem {
+  stroke: var(--color-gold-dark);
+}
+
+.hero__leaf {
+  fill: var(--color-sage);
+  stroke: var(--color-ink);
+}
+
+.hero__petal {
+  fill: var(--color-iris);
+  stroke: var(--color-ink);
+}
+
+.hero__petal:nth-of-type(even) {
+  fill: var(--color-terracotta);
+}
+
+.hero__flower-center {
+  fill: var(--color-gold);
+  stroke: var(--color-ink);
+  stroke-width: 2;
+}
+
+/* Interactive states */
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__cta:hover {
+    color: var(--color-ink);
+    background-color: var(--color-gold);
+    transform: translateY(-3px);
+  }
+
+  .hero__cta:hover span:last-child {
+    transform: translate(3px, -3px);
+  }
+}
+
+/* Responsive composition */
+
+@media (max-width: 70rem) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 0.8fr) minmax(22rem, 1.2fr);
+    gap: var(--space-7);
+  }
+
+  .hero__title {
+    font-size: clamp(4.25rem, 8vw, 7rem);
+  }
+}
+
+@media (max-width: 52rem) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__copy {
+    max-width: 44rem;
+  }
+
+  .hero__title {
+    max-width: 8ch;
+    font-size: clamp(4.5rem, 15vw, 8rem);
+  }
+
+  .hero__visual {
+    width: min(90%, 40rem);
+    margin-inline: auto;
+  }
+
+  .hero__botanical {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 36rem) {
+  .hero {
+    padding-block: var(--space-8);
+  }
+
+  .hero__title {
+    font-size: clamp(3.8rem, 18vw, 5.8rem);
+  }
+
+  .hero__description {
+    max-width: 30rem;
+  }
+
+  .hero__cta {
+    width: 100%;
+  }
+
+  .hero__visual {
+    width: calc(100% - 1rem);
+    margin-top: var(--space-4);
+  }
+
+  .hero__artwork {
+    border-radius: 45% 45% 0.25rem 0.25rem;
+    box-shadow:
+      0 0 0 0.3rem var(--color-paper),
+      0 0 0 0.38rem var(--color-gold),
+      0.75rem 0.75rem 0 rgb(167 131 61 / 14%);
+  }
+
+  .hero__skyline {
+    padding-inline: 1rem;
+  }
+
+  .hero__botanical {
+    width: 11rem;
+    opacity: 0.5;
+  }
+}
